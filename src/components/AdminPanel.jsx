@@ -28,15 +28,17 @@ export const AdminPanel = (props) => {
                                 <EmployeeCard employee={employee} />
                             </div>
                             <div>
-                                <select 
-                                    name="status" 
-                                    value={employee.status} 
-                                    onChange={(e) => handleChange(index, e.target.value)}
+                                {employee.status === "Pending" ?
+                                (<select 
+                                name="status" 
+                                value={employee.status} 
+                                onChange={(e) => handleChange(index, e.target.value)}
                                 >
                                     <option value="Pending">Pending</option>
                                     <option value="Approved">Approved</option>
                                     <option value="Rejected">Rejected</option>
-                                </select>
+                                </select>):employee.status === "Approved" ? <div>Approved</div> : <div>Rejected</div>
+                                }
                             </div>
                             </div>
                         );

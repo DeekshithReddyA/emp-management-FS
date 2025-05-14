@@ -31,7 +31,7 @@ function App() {
           <Route path='/login' element={<LoginForm />} />
           <Route path='/register' element={<EmployeeForm employees={employees} setEmployees={setEmployees} />} />
           <Route path='/employees' element={<EmployeeList employees={employees} />} />
-          <Route path='/admin' element={<AdminPanel employees={employees} setEmployees={setEmployees}/>} />
+          <Route path='/admin' element={<AdminPanel employees={employees.filter(emp => emp.status==="Pending")} setEmployees={setEmployees}/>} />
           <Route path='/hr' element={<HRPanel employees={employees.filter(emp => (emp.status==="Approved"))}/>} />
         </Routes>
       </Router>
